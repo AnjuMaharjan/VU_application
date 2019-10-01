@@ -23,7 +23,7 @@ namespace VU.Models
         [Required]
         public string AttendeeAddress { get; set; }
 
-        [RegularExpression(@"[A-Za-z0-9, _%+-]+@[A-Za-z0-9,-]+\,[A-Za-z]{2,4}")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
         public string AttendeeEmail { get; set; }
         public virtual ICollection<Registration> Registrations { get; set; }
     }

@@ -184,12 +184,21 @@ optgroup {
   font-weight: bold;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	
+	border-collapse: collapse;
+	border-spacing: 0;
+
 }
 td,
 th {
   padding: 0;
+}
+
+td.tdata {
+	word-break: break-word;
+}
+td.manipulate{
+	width:20%;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -4400,7 +4409,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
-  padding-top: 10px;
+  padding-top: 30;
   padding-bottom: 10px;
   line-height: 20px;
 }
@@ -4436,8 +4445,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
+    padding-top: 35px;
     padding-bottom: 15px;
+	padding-left: 30px
   }
 }
 .navbar-form {
@@ -4665,7 +4675,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #003366;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
@@ -4680,11 +4690,12 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #fff;
+  font-size: 110%;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+  color: #ffa;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > .active > a,
@@ -6830,5 +6841,9 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.links {
+	height: 1px;
+	width: 1px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
