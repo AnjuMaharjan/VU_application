@@ -11,7 +11,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Organizer.OrganizerName)
+            @*@Html.DisplayNameFor(model => model.Organizer.OrganizerName)*@
+            @Html.DisplayName("Organizer Name")
         </dt>
 
         <dd>
@@ -19,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventName)
+            @Html.DisplayName("Event Name")
         </dt>
 
         <dd>
@@ -27,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventLocation)
+            @Html.DisplayName("Event Location")
         </dt>
 
         <dd>
@@ -35,7 +36,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
+            @Html.DisplayName("Event Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Start Time")
         </dt>
 
         <dd>
@@ -43,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EndTime)
+            @Html.DisplayName("End Time")
         </dt>
 
         <dd>

@@ -48,7 +48,7 @@ namespace VU.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,OrganizerID,EventName,EventLocation,StartTime,EndTime")] Event @event)
+        public ActionResult Create([Bind(Include = "EventID,OrganizerID,EventName,EventLocation,EventDate,StartTime,EndTime")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace VU.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,OrganizerID,EventName,EventLocation,StartTime,EndTime")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,OrganizerID,EventName,EventLocation,EventDate,StartTime,EndTime")] Event @event)
         {
             if (ModelState.IsValid)
             {

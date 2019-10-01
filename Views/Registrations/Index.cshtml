@@ -12,13 +12,15 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Attendee.AttendeeFirstName)
+            @Html.DisplayName("Event Name")
+            
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Event.EventName)
+            @* @Html.DisplayNameFor(model => model.Attendee.AttendeeName)*@
+            @Html.DisplayName("Name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RegistrationFee)
+            @Html.DisplayName("Registration Fee")
         </th>
         <th></th>
     </tr>
@@ -26,10 +28,11 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName)
+            @Html.DisplayFor(modelItem => item.Event.EventName)
+           
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Event.EventName)
+            @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RegistrationFee)
