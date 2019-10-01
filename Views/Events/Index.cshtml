@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<VU.Models.Event>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Event";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Events")" title="Add Event" class="links">
+        <img alt="Add Event" src="@Url.Content("../../image/event.png")">
+         Add Event
+    </a>
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -53,9 +56,22 @@
         @Html.DisplayFor(modelItem => item.EndTime)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.EventID }) |
+        <a href="@Url.Action("Edit", "Events" , new { id = item.EventID })" title="Edit" class="links">
+            <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+            Edit
+        </a> |
+        <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="Details" class="links">
+            <img alt="Details" src="@Url.Content("../../image/details.png")">
+            Details
+        </a> |
+        <a href="@Url.Action("Delete", "Events" , new { id = item.EventID })" title="Delete" class="links">
+            <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+            Delete
+        </a>
+
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.EventID }) |
         @Html.ActionLink("Details", "Details", new { id = item.EventID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.EventID })
+        @Html.ActionLink("Delete", "Delete", new { id = item.EventID })*@
     </td>
 </tr>
 }

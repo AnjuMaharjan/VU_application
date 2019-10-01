@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<VU.Models.Registration>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registration";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Registrations")" title="Add Registration" class="links">
+        <img alt="Add Registration" src="@Url.Content("../../image/registration.jpg")">
+         Add Registration
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -38,9 +39,21 @@
             @Html.DisplayFor(modelItem => item.RegistrationFee)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RegistrationID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RegistrationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RegistrationID })
+            <a href="@Url.Action("Edit", "Registrations" , new { id = item.RegistrationID })" title="Edit" class="links">
+                <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+                Edit
+            </a> |
+            <a href="@Url.Action("Details", "Registrations" , new { id = item.RegistrationID })" title="Details" class="links">
+                <img alt="Details" src="@Url.Content("../../image/details.png")">
+                Details
+            </a> |
+            <a href="@Url.Action("Delete", "Registrations" , new { id = item.RegistrationID })" title="Delete" class="links">
+                <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+                Delete
+            </a>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.RegistrationID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RegistrationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RegistrationID })*@
         </td>
     </tr>
 }

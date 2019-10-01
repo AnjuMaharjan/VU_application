@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<VU.Models.Organizer>
 
 @{
-    ViewBag.Title = "Organizers";
+    ViewBag.Title = "Organizer";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Organizers")" title="Add Organizer" class="links">
+        <img alt="Create Organizers" src="@Url.Content("../../image/organizer.png")">
+         Add Organizer
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -48,9 +49,21 @@
             @Html.DisplayFor(modelItem => item.OrganizerAddress)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrganizerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrganizerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrganizerID })
+            <a href="@Url.Action("Edit", "Organizers" , new { id = item.OrganizerID })" title="Edit" class="links">
+                <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+                Edit
+            </a> |
+            <a href="@Url.Action("Details", "Organizers" , new { id = item.OrganizerID })" title="Details" class="links">
+                <img alt="Details" src="@Url.Content("../../image/details.png")">
+                Details
+            </a> |
+            <a href="@Url.Action("Delete", "Organizers" , new { id = item.OrganizerID })" title="Delete" class="links">
+                <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+                Delete
+            </a>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.OrganizerID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OrganizerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OrganizerID })*@
         </td>
     </tr>
 }
