@@ -1,0 +1,57 @@
+﻿@model IEnumerable<VU.Models.Attendee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeEmail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendeeFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendeeLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendeePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendeeAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendeeEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AttendeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AttendeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AttendeeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<VU.Models.Organizer>
+
+@{
+    ViewBag.Title = "Organizers";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Organizer Name")
+            @*@Html.DisplayNameFor(model => model.OrganizerName)*@
+        </th>
+        <th>
+            @Html.DisplayName("Contact Person")
+        </th>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+        <th>
+            @Html.DisplayName("Phone")
+        </th>
+        <th>
+            @Html.DisplayName("Address")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizerAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrganizerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrganizerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrganizerID })
+        </td>
+    </tr>
+}
+
+</table>

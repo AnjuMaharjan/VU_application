@@ -1,0 +1,58 @@
+﻿@model VU.Models.Attendee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attendee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeeFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeeFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeeLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeeLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeeAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeeAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeeEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeeEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AttendeeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
