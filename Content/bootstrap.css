@@ -1447,19 +1447,33 @@ ol ol {
   padding-left: 5px;
 }
 dl {
-  margin-top: 0;
-  margin-bottom: 20px;
+/*   margin-top: 0;
+  margin-bottom: 20px; */
+  display: flex;
+	flex-flow: row wrap;
+	border: solid #333;
+	border-width: 1px 1px 0 0;
 }
-dt,
+/* dt,
 dd {
   line-height: 1.42857143;
-}
+} */
 dt {
   font-weight: 700;
+  flex-basis: 20%;
+    padding: 5px 10px;
+    background: #003366;
+    text-align: right;
+    color: #fff;
 }
 dd {
-  margin-left: 0;
+    flex-basis: 70%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #333;
 }
+
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
@@ -1471,7 +1485,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 180px;
+    margin-left: 2px;
   }
 }
 abbr[title],
@@ -1593,7 +1607,8 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto;
+  margin-top: relative;
+  margin-left: 140px;
 }
 @media (min-width: 768px) {
   .container {
@@ -6845,5 +6860,44 @@ button.close {
 .links {
 	height: 1px;
 	width: 1px;
+}
+.form-control .date-time {
+	type = "datetime-local";
+}
+
+.sidenav {
+  width: 155px;
+  position: fixed;
+  z-index: 1;
+  /* top: 20px; */
+  /* left: 10px; */
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.alert-delete{
+	display:inline;
+    background-color:yellow;
+    color:#bf1919;
+	font-size:120%
+	
 }
 /*# sourceMappingURL=bootstrap.css.map */

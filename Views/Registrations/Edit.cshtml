@@ -4,22 +4,19 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Registration</h4>
+        <h4>Edit Registration:</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.RegistrationID)
 
         <div class="form-group">
             @*@Html.LabelFor(model => model.EventID, "EventID", htmlAttributes: new { @class = "control-label col-md-2" })*@
-           @Html.Label("Event ID", htmlAttributes: new { @class = "control-label col-md-2" })
+           @Html.Label("Event Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EventID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EventID, "", new { @class = "text-danger" })
@@ -27,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Attendee ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Attendee Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("AttendeeID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AttendeeID, "", new { @class = "text-danger" })

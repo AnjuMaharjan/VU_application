@@ -7,33 +7,44 @@
 <p>
     <a href="@Url.Action("Create", "Registrations")" title="Add Registration" class="links">
         <img alt="Add Registration" src="@Url.Content("../../image/registration.jpg")">
-         Add Registration
+        Add Registration
     </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Event Name")
-            
-        </th>
-        <th>
-            @* @Html.DisplayNameFor(model => model.Attendee.AttendeeName)*@
-            @Html.DisplayName("Name")
-        </th>
-        <th>
-            @Html.DisplayName("Registration Fee")
-        </th>
-        <th></th>
-    </tr>
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Registration ID")
 
-@foreach (var item in Model) {
+            </th>
+            <th>
+                @Html.DisplayName("Event Name")
+
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Attendee.AttendeeName)*@
+                @Html.DisplayName("Attendee Full Name")
+            </th>
+            <th>
+                @Html.DisplayName("Registration Fee")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Event.EventName)
-           
+            @Html.DisplayFor(modelItem => item.RegistrationID)
+
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName)
+            @Html.DisplayFor(modelItem => item.Event.EventName)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName) @Html.DisplayFor(modelItem => item.Attendee.AttendeeLastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RegistrationFee)
@@ -51,11 +62,14 @@
                 <img alt="Delete" src="@Url.Content("../../image/delete.png")">
                 Delete
             </a>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.RegistrationID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.RegistrationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.RegistrationID })*@
         </td>
     </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h2 align="center">Oops..!! There are no Registrations!!</h2>
 }
 
-</table>

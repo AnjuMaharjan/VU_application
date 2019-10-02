@@ -1,13 +1,12 @@
 ﻿@model VU.Models.Organizer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Organizer Details";
 }
 
-<h3>Organizer Details</h3>
 
 <div>
-    <h4>Organizer</h4>
+    <h4>Organizer Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -55,6 +54,83 @@
 </div>
 <p>
     
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizerID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Organizers" , new { id = Model.OrganizerID })" title="Edit" class="links">
+        <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+        Edit
+    </a> |
+    @Html.ActionLink("Back to Organizer(s) List", "Index")
 </p>
+<div>
+    @if (Model.Events != null && Model.Events.Any())
+    {
+        <h4>Event Information</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Event Name")
+                    @*@Html.DisplayNameFor(model => model.OrganizerName)*@
+                </th>
+                <th>
+                    @Html.DisplayName("Event Location")
+                </th>
+                <th>
+                    @Html.DisplayName("Event Date")
+                </th>
+                <th>
+                    @Html.DisplayName("Start Time")
+                </th>
+                <th>
+                    @Html.DisplayName("End Time")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Events)
+            {
+                <tr>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.EventName)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.EventLocation)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.EventDate)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+                    <td class="manipulate">
+                        <a href="@Url.Action("Edit", "Events" , new { id = item.EventID })" title="Edit" class="links">
+                            <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+                            Edit
+                        </a> |
+                        <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="Details" class="links">
+                            <img alt="Details" src="@Url.Content("../../image/details.png")">
+                            Details
+                        </a> |
+                        <a href="@Url.Action("Delete", "Events" , new { id = item.EventID })" title="Delete" class="links">
+                            <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+                            Delete
+                        </a>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.OrganizerID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.OrganizerID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.OrganizerID })*@
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3 align="center">Currently, there are no events for this Organizer.</h3>
+        <p align="center">Click on Add Event to create new events.</p>
+        <a align="center" href="@Url.Action("Create", "Events")" title="Add Event" class="links">
+            <img alt="Add Event" src="@Url.Content("../../image/event.png")">
+            Add Event
+        </a>
+    }
+</div>

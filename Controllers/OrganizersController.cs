@@ -17,6 +17,7 @@ namespace VU.Controllers
         // GET: Organizers
         public ActionResult Index()
         {
+            var organizers = db.Organizers.Include(e => e.Events);
             return View(db.Organizers.ToList());
         }
 

@@ -1,13 +1,11 @@
 ﻿@model VU.Models.Attendee
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Attendee Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Attendee</h4>
+    <h4>Attendee Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -55,6 +53,76 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AttendeeID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Attendees" , new { id = Model.AttendeeID })" title="Edit" class="links">
+        <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+        Edit
+    </a> |
+    @Html.ActionLink("Back to Attendee(s) List", "Index")
 </p>
+
+
+<div>
+    @if (Model.Registrations != null && Model.Registrations.Any())
+    {
+        <h4>Registered Events</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Registration ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Event Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Event Location")
+                </th>
+                <th>
+                    @Html.DisplayName("Event Date")
+                </th>
+                <th>
+                    @Html.DisplayName("Start Time")
+                </th>
+                <th>
+                    @Html.DisplayName("End Time")
+                </th>
+                <th>
+                    @Html.DisplayName("Registration Fee")
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Registrations)
+            {
+        <tr>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.RegistrationID)
+            </td>
+            <td class="tdata">
+                <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="View Event Details" class="links">
+                    <img alt="View Event Details" src="@Url.Content("../../image/event_d.png")">
+                    @Html.DisplayFor(modelItem => item.Event.EventName)
+                </a>
+            </td>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.Event.EventLocation)
+            </td>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.Event.EventDate)
+            </td>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.Event.StartTime)
+            </td>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.Event.EndTime)
+            </td>
+            <td class="tdata">
+                @Html.DisplayFor(modelItem => item.RegistrationFee)
+            </td>
+        </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3 align="center">Currently, there are no registered event for this attendee.</h3>
+    }
+</div>

@@ -8,65 +8,73 @@
 <p>
     <a href="@Url.Action("Create", "Attendees")" title="Add Attendess" class="links">
         <img alt="Add Attendee" src="@Url.Content("../../image/attendee.png")">
-         Add Attendee
+        Add Attendee
     </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.AttendeeFirstName)*@
-            @Html.DisplayName("First Name")
-        </th>
-        <th>
-            @Html.DisplayName("Last Name")
-        </th>
-        <th>
-            @Html.DisplayName("Phone")
-        </th>
-        <th>
-            @Html.DisplayName("Address")
-        </th>
-        <th>
-            @Html.DisplayName("Email")
-        </th>
-        <th></th>
-    </tr>
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.AttendeeFirstName)*@
+                @Html.DisplayName("First Name")
+            </th>
+            <th>
+                @Html.DisplayName("Last Name")
+            </th>
+            <th>
+                @Html.DisplayName("Phone")
+            </th>
+            <th>
+                @Html.DisplayName("Address")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendeeFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendeeLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendeePhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendeeAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttendeeEmail)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", "Attendees" , new { id = item.AttendeeID })" title="Edit" class="links">
-                <img alt="Edit" src="@Url.Content("../../image/edit.png")">
-                Edit
-            </a> |
-            <a href="@Url.Action("Details", "Attendees" , new { id = item.AttendeeID })" title="Details" class="links">
-                <img alt="Details" src="@Url.Content("../../image/details.png")">
-                Details
-            </a> |
-            <a href="@Url.Action("Delete", "Attendees" , new { id = item.AttendeeID })" title="Delete" class="links">
-                <img alt="Delete" src="@Url.Content("../../image/delete.png")">
-                Delete
-            </a>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.AttendeeID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.AttendeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.AttendeeID })*@
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendeeFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendeeLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendeePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendeeAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendeeEmail)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Attendees" , new { id = item.AttendeeID })" title="Edit" class="links">
+                        <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+                        Edit
+                    </a> |
+                    <a href="@Url.Action("Details", "Attendees" , new { id = item.AttendeeID })" title="Details" class="links">
+                        <img alt="Details" src="@Url.Content("../../image/details.png")">
+                        Details
+                    </a> |
+                    <a href="@Url.Action("Delete", "Attendees" , new { id = item.AttendeeID })" title="Delete" class="links">
+                        <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+                        Delete
+                    </a>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.AttendeeID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.AttendeeID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AttendeeID })*@
+                </td>
+            </tr>
+        }
+
+    </table>
 }
-
-</table>
+else
+{
+    <h2 align="center">Oops..!! There are no Attendees!!</h2>
+}

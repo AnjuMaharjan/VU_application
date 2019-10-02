@@ -17,6 +17,7 @@ namespace VU.Controllers
         // GET: Attendees
         public ActionResult Index()
         {
+            var registrations = db.Attendees.Include(r => r.Registrations);
             return View(db.Attendees.ToList());
         }
 

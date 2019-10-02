@@ -77,3 +77,4 @@ C:\Users\user\source\repos\VU\bin\EntityFramework.dll
 C:\Users\user\source\repos\VU\bin\EntityFramework.SqlServer.dll
 C:\Users\user\source\repos\VU\bin\EntityFramework.xml
 C:\Users\user\source\repos\VU\bin\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\VU\obj\Debug\VU.csprojAssemblyReference.cache

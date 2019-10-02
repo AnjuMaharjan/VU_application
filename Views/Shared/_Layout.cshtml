@@ -24,14 +24,20 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Organizer", "Index", "Organizers")</li>
+                    @*<li>@Html.ActionLink("Organizer", "Index", "Organizers")</li>
                     <li>@Html.ActionLink("Event", "Index", "Events")</li>
                     <li>@Html.ActionLink("Registration", "Index", "Registrations")</li>
-                    <li>@Html.ActionLink("Attendee", "Index", "Attendees")</li>
+                    <li>@Html.ActionLink("Attendee", "Index", "Attendees")</li>*@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="sidenav">
+        @Html.ActionLink("Organizer", "Index", "Organizers")
+        @Html.ActionLink("Event", "Index", "Events")
+        @Html.ActionLink("Registration", "Index", "Registrations")
+        @Html.ActionLink("Attendee", "Index", "Attendees")
     </div>
     <div class="container body-content">
         @RenderBody()

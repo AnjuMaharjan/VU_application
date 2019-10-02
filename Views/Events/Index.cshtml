@@ -8,72 +8,80 @@
 <p>
     <a href="@Url.Action("Create", "Events")" title="Add Event" class="links">
         <img alt="Add Event" src="@Url.Content("../../image/event.png")">
-         Add Event
+        Add Event
     </a>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Organizer Name")
-        </th>
-        <th>
-            @Html.DisplayName("Event Name")
-        </th>
-        <th>
-            @Html.DisplayName("Event Location")
-        </th>
-        <th>
-            @Html.DisplayName("Event Date")
-        </th>
-        <th>
-            @Html.DisplayName("Start Time")
-        </th>
-        <th>
-            @Html.DisplayName("End Time")
-        </th>
-        <th></th>
-    </tr>
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Organizer Name")
+            </th>
+            <th>
+                @Html.DisplayName("Event Name")
+            </th>
+            <th>
+                @Html.DisplayName("Event Location")
+            </th>
+            <th>
+                @Html.DisplayName("Event Date")
+            </th>
+            <th>
+                @Html.DisplayName("Start Time")
+            </th>
+            <th>
+                @Html.DisplayName("End Time")
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Organizer.OrganizerName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EventName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EventLocation)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EventDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.StartTime)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EndTime)
-    </td>
-    <td>
-        <a href="@Url.Action("Edit", "Events" , new { id = item.EventID })" title="Edit" class="links">
-            <img alt="Edit" src="@Url.Content("../../image/edit.png")">
-            Edit
-        </a> |
-        <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="Details" class="links">
-            <img alt="Details" src="@Url.Content("../../image/details.png")">
-            Details
-        </a> |
-        <a href="@Url.Action("Delete", "Events" , new { id = item.EventID })" title="Delete" class="links">
-            <img alt="Delete" src="@Url.Content("../../image/delete.png")">
-            Delete
-        </a>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Organizer.OrganizerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Events" , new { id = item.EventID })" title="Edit" class="links">
+                        <img alt="Edit" src="@Url.Content("../../image/edit.png")">
+                        Edit
+                    </a> |
+                    <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="Details" class="links">
+                        <img alt="Details" src="@Url.Content("../../image/details.png")">
+                        Details
+                    </a> |
+                    <a href="@Url.Action("Delete", "Events" , new { id = item.EventID })" title="Delete" class="links">
+                        <img alt="Delete" src="@Url.Content("../../image/delete.png")">
+                        Delete
+                    </a>
 
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.EventID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.EventID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.EventID })*@
-    </td>
-</tr>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.EventID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EventID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EventID })*@
+                </td>
+            </tr>
+        }
+
+    </table>
 }
-
-</table>
+else
+{
+    <h2 align="center">Oops..!! There are no Events!!</h2>
+}
