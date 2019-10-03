@@ -4,8 +4,8 @@
     ViewBag.Title = "Registration Details";
 }
 
-<div>
-    <h4>Registration Details</h4>
+<div class="upper-content">
+    <h4 class="my-header">Registration Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -89,8 +89,9 @@
 
     </dl>
 </div>
+<br/>
 <p>
-    <a href="@Url.Action("Edit", "Registrations" , new { id = Model.RegistrationID })" title="Edit" class="links">
+    <a href="@Url.Action("Edit", "Registrations" , new { id = Model.RegistrationID })" title="Edit" class="links my-edit">
         <img alt="Edit" src="@Url.Content("../../image/edit.png")">
         Edit
     </a> |

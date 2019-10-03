@@ -5,8 +5,8 @@
 }
 
 
-<div>
-    <h4>Organizer Details</h4>
+<div class="upper-content">
+    <h4 class="my-header">Organizer Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -52,18 +52,19 @@
 
     </dl>
 </div>
+<br/>
 <p>
     
-    <a href="@Url.Action("Edit", "Organizers" , new { id = Model.OrganizerID })" title="Edit" class="links">
+    <a href="@Url.Action("Edit", "Organizers" , new { id = Model.OrganizerID })" title="Edit" class="links my-edit">
         <img alt="Edit" src="@Url.Content("../../image/edit.png")">
         Edit
     </a> |
     @Html.ActionLink("Back to Organizer(s) List", "Index")
 </p>
-<div>
+<div class="lower-content">
     @if (Model.Events != null && Model.Events.Any())
     {
-        <h4>Event Information</h4>
+        <h4 class="my-header">Organized Event(s) Information</h4>
         <table class="table">
             <tr>
                 <th>
@@ -82,14 +83,16 @@
                 <th>
                     @Html.DisplayName("End Time")
                 </th>
-                <th></th>
             </tr>
 
             @foreach (var item in Model.Events)
             {
                 <tr>
                     <td class="tdata">
+					<a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="View Event Details" class="links">
+					<img alt="View" src="@Url.Content("../../image/event_d.png")">
                         @Html.DisplayFor(modelItem => item.EventName)
+						</a>
                     </td>
                     <td class="tdata">
                         @Html.DisplayFor(modelItem => item.EventLocation)
@@ -102,23 +105,6 @@
                     </td>
                     <td class="tdata">
                         @Html.DisplayFor(modelItem => item.EndTime)
-                    </td>
-                    <td class="manipulate">
-                        <a href="@Url.Action("Edit", "Events" , new { id = item.EventID })" title="Edit" class="links">
-                            <img alt="Edit" src="@Url.Content("../../image/edit.png")">
-                            Edit
-                        </a> |
-                        <a href="@Url.Action("Details", "Events" , new { id = item.EventID })" title="Details" class="links">
-                            <img alt="Details" src="@Url.Content("../../image/details.png")">
-                            Details
-                        </a> |
-                        <a href="@Url.Action("Delete", "Events" , new { id = item.EventID })" title="Delete" class="links">
-                            <img alt="Delete" src="@Url.Content("../../image/delete.png")">
-                            Delete
-                        </a>
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.OrganizerID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.OrganizerID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.OrganizerID })*@
                     </td>
                 </tr>
             }

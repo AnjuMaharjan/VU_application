@@ -4,10 +4,11 @@
     ViewBag.Title = "Registration";
 }
 
+<div class="upper-content">
 <p>
     <a href="@Url.Action("Create", "Registrations")" title="Add Registration" class="links">
-        <img alt="Add Registration" src="@Url.Content("../../image/registration.jpg")">
-        Add Registration
+        <img alt="Add Registration" src="@Url.Content("../../image/registration.jpg")" class="my-image">
+        <b>Add Registration</b>
     </a>
 </p>
 @if (Model != null && Model.Any())
@@ -16,18 +17,15 @@
         <tr>
             <th>
                 @Html.DisplayName("Registration ID")
-
             </th>
             <th>
-                @Html.DisplayName("Event Name")
-
+                @Html.ActionLink("Event Name", "Index", new { sortOrder = ViewBag.EventNameSort })
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Attendee.AttendeeName)*@
-                @Html.DisplayName("Attendee Full Name")
+                @Html.ActionLink("Attendee Full Name", "Index", new { sortOrder = ViewBag.AttendeeNameSort })
             </th>
             <th>
-                @Html.DisplayName("Registration Fee")
+                @Html.ActionLink("Registration Fee", "Index", new { sortOrder = ViewBag.RegFeeSort })
             </th>
             <th></th>
         </tr>
@@ -47,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName) @Html.DisplayFor(modelItem => item.Attendee.AttendeeLastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RegistrationFee)
+            $ @Html.DisplayFor(modelItem => item.RegistrationFee)
         </td>
         <td>
             <a href="@Url.Action("Edit", "Registrations" , new { id = item.RegistrationID })" title="Edit" class="links">
@@ -72,4 +70,4 @@ else
 {
     <h2 align="center">Oops..!! There are no Registrations!!</h2>
 }
-
+</div>

@@ -4,10 +4,10 @@
     ViewBag.Title = "Attendee";
 }
 
-
+<div class="upper-content">
 <p>
     <a href="@Url.Action("Create", "Attendees")" title="Add Attendess" class="links">
-        <img alt="Add Attendee" src="@Url.Content("../../image/attendee.png")">
+        <img alt="Add Attendee" src="@Url.Content("../../image/attendee.png")" class="my-image">
         Add Attendee
     </a>
 </p>
@@ -78,3 +78,4 @@ else
 {
     <h2 align="center">Oops..!! There are no Attendees!!</h2>
 }
+</div>

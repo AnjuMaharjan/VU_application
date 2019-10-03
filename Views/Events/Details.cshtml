@@ -5,8 +5,8 @@
 }
 
 
-<div>
-    <h4>Event Details</h4>
+<div class="upper-content">
+    <h4 class="my-header">Event Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -63,10 +63,64 @@
 
     </dl>
 </div>
+<br/>
 <p>
-    <a href="@Url.Action("Edit", "Events" , new { id = Model.EventID })" title="Edit" class="links">
+    <br />
+    <a href="@Url.Action("Edit", "Events" , new { id = Model.EventID })" title="Edit" class="links my-edit">
         <img alt="Edit" src="@Url.Content("../../image/edit.png")">
         Edit
     </a> |
     @Html.ActionLink("Back to Event(s) List", "Index")
 </p>
+
+<div class="lower-content">
+    @if (Model.Registrations != null && Model.Registrations.Any())
+    {
+        <h4 class="my-header">Registered Attendees Information</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Registration ID")
+                    @*@Html.DisplayNameFor(model => model.OrganizerName)*@
+                </th>
+                <th>
+                    @Html.DisplayName("Attendee Full Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Attendee Email")
+                </th>
+                <th>
+                    @Html.DisplayName("Attendee Phone")
+                </th>
+                <th>
+                    @Html.DisplayName("Registration Fee")
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Registrations)
+            {
+                <tr>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.RegistrationID)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.Attendee.AttendeeFirstName)  @Html.DisplayFor(modelItem => item.Attendee.AttendeeLastName)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.Attendee.AttendeeEmail)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.Attendee.AttendeePhone)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.RegistrationFee)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3 align="center">Currently, there are no registrations made for this event.</h3>
+    }
+</div>

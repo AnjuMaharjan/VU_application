@@ -1451,8 +1451,9 @@ dl {
   margin-bottom: 20px; */
   display: flex;
 	flex-flow: row wrap;
-	border: solid #333;
-	border-width: 1px 1px 0 0;
+	margin-right:20px;
+	/* border: solid #333; */
+	/* border-width: 1px 1px 0 0; */
 }
 /* dt,
 dd {
@@ -1483,6 +1484,8 @@ dd {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+	margin-left: 20px;
+	margin-right: 10px;
   }
   .dl-horizontal dd {
     margin-left: 2px;
@@ -2054,7 +2057,7 @@ pre code {
     width: 91.66666667%;
   }
   .col-md-10 {
-    width: 83.33333333%;
+    width: 60%;
   }
   .col-md-9 {
     width: 75%;
@@ -2392,6 +2395,7 @@ caption {
 }
 th {
   text-align: left;
+  color: #337ab7;
 }
 .table {
   width: 100%;
@@ -3108,6 +3112,7 @@ select[multiple].input-lg {
     padding-top: 7px;
     margin-bottom: 0;
     text-align: left;
+	margin-left: 15px;
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {
@@ -3185,6 +3190,19 @@ fieldset[disabled] a.btn {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+  margin-left:15px;
+}
+.btn-default-delete {
+  color: #333;
+  background-color: #fe958a;
+  border-color: #ccc;
+  margin-left:15px;
+}
+.btn-default-cancel {
+  color: #333;
+  background-color: #add8e6;
+  border-color: #ccc;
+  margin-left:15px;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -3192,7 +3210,7 @@ fieldset[disabled] a.btn {
   background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
-.btn-default:hover {
+.btn-default:hover,.btn-default-cancel:hover{
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
@@ -6858,15 +6876,18 @@ button.close {
   }
 }
 .links {
+	
 	height: 1px;
 	width: 1px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 .form-control .date-time {
 	type = "datetime-local";
 }
 
 .sidenav {
-  width: 155px;
+  width: 140px;
   position: fixed;
   z-index: 1;
   /* top: 20px; */
@@ -6874,6 +6895,9 @@ button.close {
   background: #eee;
   overflow-x: hidden;
   padding: 8px 0;
+  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  margin-top: 15px;
+  margin-left:10px;
 }
 
 .sidenav a {
@@ -6899,5 +6923,34 @@ button.close {
     color:#bf1919;
 	font-size:120%
 	
+}
+.lower-content{
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	padding-top:16px!important;
+	padding-bottom:16px!important;
+	margin-left:10px;
+	margin-top: 40px;
+}
+.upper-content{
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	padding-top:16px!important;
+	padding-bottom:16px!important;
+	margin-left:10px;
+}
+.my-header{
+	color:#009688!important;
+	margin-left:10px;
+}
+.my-back,.my-edit, .my-image{
+	margin-left:15px;
+}
+.my-back{
+	margin-top: 10px;
+}
+.margin-5 {
+	margin-top:5px;
+	margin-left:10px;
+	font-weight:600;
+	font-style:italic;
 }
 /*# sourceMappingURL=bootstrap.css.map */

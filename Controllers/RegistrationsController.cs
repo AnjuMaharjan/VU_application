@@ -15,9 +15,34 @@ namespace VU.Controllers
         private VU_DB db = new VU_DB();
 
         // GET: Registrations
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
             var registrations = db.Registrations.Include(r => r.Attendee).Include(r => r.Event);
+            ViewBag.EventNameSort = String.IsNullOrEmpty(sortOrder) ? "event_desc" : "";
+            ViewBag.AttendeeNameSort = sortOrder == "name" ? "name_desc" : "name";
+            ViewBag.RegFeeSort = sortOrder == "reg_fee" ? "reg_desc" : "reg_fee";
+
+            switch (sortOrder)
+            {
+                case "event_desc":
+                    registrations = registrations.OrderByDescending(o => o.Event.EventName);
+                    break;
+                case "name":
+                    registrations = registrations.OrderBy(o => o.Attendee.AttendeeFirstName).ThenBy(o=> o.Attendee.AttendeeFirstName);
+                    break;
+                case "name_desc":
+                    registrations = registrations.OrderByDescending(o => o.Attendee.AttendeeFirstName).ThenBy(o=> o.Attendee.AttendeeFirstName);
+                    break;
+                case "reg_fee":
+                    registrations = registrations.OrderBy(o => o.RegistrationFee);
+                    break;
+                case "reg_desc":
+                    registrations = registrations.OrderByDescending(o => o.RegistrationFee);
+                    break;
+                default:
+                    registrations = registrations.OrderBy(o => o.Event.EventName);
+                    break;
+            }
             return View(registrations.ToList());
         }
 

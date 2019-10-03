@@ -15,10 +15,41 @@ namespace VU.Controllers
         private VU_DB db = new VU_DB();
 
         // GET: Organizers
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.OrganizerNameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.ContactPersonSort = sortOrder == "contact_asc" ? "contact_desc": "contact_asc";
+            ViewBag.EmailSort = sortOrder == "email_asc" ? "email_desc" : "email_asc";
             var organizers = db.Organizers.Include(e => e.Events);
-            return View(db.Organizers.ToList());
+            organizers = from o in organizers select o;
+            
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                organizers = organizers.Where(o =>
+                  o.OrganizerName.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch(sortOrder)
+            {
+                case "name_desc":
+                    organizers = organizers.OrderByDescending(o => o.OrganizerName);
+                    break;
+                case "contact_asc":
+                    organizers = organizers.OrderBy(o => o.ContactPerson);
+                    break;
+                case "contact_desc":
+                    organizers = organizers.OrderByDescending(o => o.ContactPerson);
+                    break;
+                case "email_asc":
+                    organizers = organizers.OrderBy(o => o.OrganizerEmail);
+                    break;
+                case "email_desc":
+                    organizers = organizers.OrderByDescending(o => o.OrganizerEmail);
+                    break;
+                default:
+                    organizers = organizers.OrderBy(o => o.OrganizerName);
+                    break;
+            }
+            return View(organizers.ToList());
         }
 
         // GET: Organizers/Details/5

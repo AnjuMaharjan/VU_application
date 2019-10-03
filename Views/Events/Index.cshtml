@@ -4,10 +4,10 @@
     ViewBag.Title = "Event";
 }
 
-
+<div class="upper-content">
 <p>
     <a href="@Url.Action("Create", "Events")" title="Add Event" class="links">
-        <img alt="Add Event" src="@Url.Content("../../image/event.png")">
+        <img alt="Add Event" src="@Url.Content("../../image/event.png")" class="my-image">
         Add Event
     </a>
     @*@Html.ActionLink("Create New", "Create")*@
@@ -85,3 +85,4 @@ else
 {
     <h2 align="center">Oops..!! There are no Events!!</h2>
 }
+</div>
