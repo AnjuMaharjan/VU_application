@@ -14,24 +14,27 @@ namespace VU.Models
             {
                 new Organizer
                 {
-                    OrganizerName="",
-                    OrganizerEmail="",
-                    OrganizerPhone="",
-                    OrganizerAddress=""
+                    OrganizerName="Asia Pacific Tourism Association",
+                    ContactPerson="Tim Clarke",
+                    OrganizerEmail="apta@apta.asia",
+                    OrganizerPhone="8251200842",
+                    OrganizerAddress="Sydney, Australia"
                 },
                 new Organizer
                 {
-                    OrganizerName="",
-                    OrganizerEmail="",
-                    OrganizerPhone="",
-                    OrganizerAddress=""
+                    OrganizerName="Department of Tourism",
+                    ContactPerson="Will Johnson",
+                    OrganizerEmail="dept@dept.gov",
+                    OrganizerPhone="0213456701",
+                    OrganizerAddress="Melbourne, Australia"
                 },
                 new Organizer
                 {
-                    OrganizerName="",
-                    OrganizerEmail="",
-                    OrganizerPhone="",
-                    OrganizerAddress=""
+                    OrganizerName="Tourism Board",
+                    ContactPerson="Michelle",
+                    OrganizerEmail="contact@tb.au",
+                    OrganizerPhone="02887192",
+                    OrganizerAddress="Sydney, Australia"
                 }
             };
             organizers.ForEach(o => context.Organizers.Add(o));
@@ -41,39 +44,39 @@ namespace VU.Models
             {
                 new Event
                 {
-                    EventName="",
+                    EventName="Annual Day",
                     OrganizerID=1,
                     EventDate=DateTime.Parse("2019-10-05"),
-                    EventLocation="",
+                    EventLocation="Sydney, Australia",
                     StartTime=DateTime.Parse("10:00"),
                     EndTime=DateTime.Parse("17:00")
                 },
                 new Event
                 {
-                    EventName="",
+                    EventName="Conference",
                     OrganizerID=1,
-                    EventDate=DateTime.Parse("2019-10-05"),
-                    EventLocation="",
-                    StartTime=DateTime.Parse("10:00"),
-                    EndTime=DateTime.Parse("17:00")
+                    EventDate=DateTime.Parse("2019-11-25"),
+                    EventLocation="Brisbane, Australia",
+                    StartTime=DateTime.Parse("09:00"),
+                    EndTime=DateTime.Parse("18:00")
                 },
                 new Event
                 {
-                    EventName="",
-                    OrganizerID=1,
-                    EventDate=DateTime.Parse("2019-10-05"),
-                    EventLocation="",
+                    EventName="Promotional Program",
+                    OrganizerID=2,
+                    EventDate=DateTime.Parse("2019-12-18"),
+                    EventLocation="Melbourne, Australia",
                     StartTime=DateTime.Parse("10:00"),
-                    EndTime=DateTime.Parse("17:00")
+                    EndTime=DateTime.Parse("14:00")
                 },
                 new Event
                 {
-                    EventName="",
-                    OrganizerID=1,
-                    EventDate=DateTime.Parse("2019-10-05"),
-                    EventLocation="",
+                    EventName="Meetup",
+                    OrganizerID=3,
+                    EventDate=DateTime.Parse("2019-10-20"),
+                    EventLocation="Adelaide, Australia",
                     StartTime=DateTime.Parse("10:00"),
-                    EndTime=DateTime.Parse("17:00")
+                    EndTime=DateTime.Parse("15:00")
                 }
             };
             events.ForEach(e => context.Events.Add(e));
@@ -83,35 +86,35 @@ namespace VU.Models
             {
                 new Attendee
                 {
-                    AttendeeFirstName="",
-                    AttendeeLastName="",
-                    AttendeeEmail="",
-                    AttendeeAddress="",
-                    AttendeePhone=""
+                    AttendeeFirstName="Anju",
+                    AttendeeLastName="Maharjan",
+                    AttendeeEmail="anju.maharjan@vu.edu.au",
+                    AttendeeAddress="Sydeny, Australia",
+                    AttendeePhone="0401897564"
                 },
                 new Attendee
                 {
-                    AttendeeFirstName="",
-                    AttendeeLastName="",
-                    AttendeeEmail="",
-                    AttendeeAddress="",
-                    AttendeePhone=""
+                    AttendeeFirstName="Yasoda",
+                    AttendeeLastName="Rai",
+                    AttendeeEmail="yasoda.rai@vu.edu.au",
+                    AttendeeAddress="Sydney, Australia",
+                    AttendeePhone="0401289675"
                 },
                 new Attendee
                 {
-                    AttendeeFirstName="",
-                    AttendeeLastName="",
-                    AttendeeEmail="",
-                    AttendeeAddress="",
-                    AttendeePhone=""
+                    AttendeeFirstName="Sam",
+                    AttendeeLastName="Head",
+                    AttendeeEmail="sam.head@gmail.com",
+                    AttendeeAddress="Melbourne, Australia",
+                    AttendeePhone="0401987130"
                 },
                 new Attendee
                 {
-                    AttendeeFirstName="",
-                    AttendeeLastName="",
-                    AttendeeEmail="",
-                    AttendeeAddress="",
-                    AttendeePhone=""
+                    AttendeeFirstName="Tom",
+                    AttendeeLastName="Root",
+                    AttendeeEmail="root.tom@gmail.com",
+                    AttendeeAddress="Brisbane, Australia",
+                    AttendeePhone="0401987620"
                 }
             };
             attendees.ForEach(a => context.Attendees.Add(a));
@@ -128,20 +131,20 @@ namespace VU.Models
                 new Registration
                 {
                     EventID = 1,
-                    AttendeeID = 1,
+                    AttendeeID = 2,
                     RegistrationFee = 50.00
                 },
                 new Registration
                 {
-                    EventID = 1,
-                    AttendeeID = 1,
-                    RegistrationFee = 50.00
+                    EventID = 2,
+                    AttendeeID = 3,
+                    RegistrationFee = 100.00
                 },
                 new Registration
                 {
-                    EventID = 1,
-                    AttendeeID = 1,
-                    RegistrationFee = 50.00
+                    EventID = 3,
+                    AttendeeID = 4,
+                    RegistrationFee = 150.00
                 }
             };
             registrations.ForEach(r => context.Registrations.Add(r));

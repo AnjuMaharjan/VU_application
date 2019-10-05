@@ -17,6 +17,7 @@ namespace VU.Models
     
         public VU_DB() : base("name=VU_DB")
         {
+            Database.SetInitializer(new DBInitializer());
         }
 
         public System.Data.Entity.DbSet<VU.Models.Event> Events { get; set; }

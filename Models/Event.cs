@@ -10,6 +10,8 @@ namespace VU.Models
     {
         public int EventID { get; set; }
         public int OrganizerID { get; set; }
+
+        [Required(ErrorMessage = "You must provide Event name.")]
         public string EventName { get; set; }
         public string EventLocation { get; set; }
 
