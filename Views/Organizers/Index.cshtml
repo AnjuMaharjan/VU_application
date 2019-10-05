@@ -10,19 +10,6 @@
                 <b>Add Organizer</b>
             </a>
         </p>
-        <br/>
-        @using (Html.BeginForm())
-        {
-            <div class="form-group">
-                @Html.Label("Find by Organizer Name:", htmlAttributes: new { @class = "control-label margin-5" })
-                
-                    @Html.TextBox("SearchString")
-                
-                    <input type="submit" value="Search" class="btn btn-default" />
-                
-            </div>
-        }
-
 
         @if (Model != null && Model.Any())
         {

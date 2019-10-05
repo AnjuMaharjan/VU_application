@@ -16,7 +16,7 @@ namespace VU.Models
         [Required]
         public int AttendeeID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must provide Registration Fee")]
         public double RegistrationFee { get; set; }
 
         public virtual Event Event { get; set; }

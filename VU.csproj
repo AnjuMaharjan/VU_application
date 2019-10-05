@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Attendee.cs" />
+    <Compile Include="Models\DBInitializer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Organizer.cs" />
     <Compile Include="Models\Registration.cs" />

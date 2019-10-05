@@ -11,19 +11,19 @@ namespace VU.Models
         [Required]
         public int AttendeeID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="You must provide First Name.")]
         public string AttendeeFirstName { get; set; }
 
-        [Required]
         public string AttendeeLastName { get; set; }
 
-        [Required]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number.")]
         public string AttendeePhone { get; set; }
 
         [Required]
         public string AttendeeAddress { get; set; }
 
-        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
+        [Required(ErrorMessage = "You must provide Email address.")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage ="Not a valid Email address.")]
         public string AttendeeEmail { get; set; }
         public virtual ICollection<Registration> Registrations { get; set; }
     }

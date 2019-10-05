@@ -13,16 +13,16 @@ namespace VU.Models
         public string EventName { get; set; }
         public string EventLocation { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="You must provide Event date.")]
         [DataType(DataType.Date)]
         public DateTime EventDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must provide Event Start time.")]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime StartTime { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must provide Event End time.")]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime EndTime { get; set; }
