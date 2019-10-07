@@ -17,7 +17,7 @@ namespace VU.Models
                     OrganizerName="Asia Pacific Tourism Association",
                     ContactPerson="Tim Clarke",
                     OrganizerEmail="apta@apta.asia",
-                    OrganizerPhone="8251200842",
+                    OrganizerPhone="0402908765",
                     OrganizerAddress="Sydney, Australia"
                 },
                 new Organizer
@@ -33,7 +33,7 @@ namespace VU.Models
                     OrganizerName="Tourism Board",
                     ContactPerson="Michelle",
                     OrganizerEmail="contact@tb.au",
-                    OrganizerPhone="02887192",
+                    OrganizerPhone="0201453980",
                     OrganizerAddress="Sydney, Australia"
                 }
             };
